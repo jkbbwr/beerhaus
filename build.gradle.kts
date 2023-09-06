@@ -1,3 +1,15 @@
 plugins {
-    kotlin("jvm") version "1.9.10" apply false
+    kotlin("jvm") apply false
+    id("com.autonomousapps.dependency-analysis")
+}
+
+// be strict about dependency issues
+dependencyAnalysis {
+    issues {
+        all {
+            onAny {
+                severity("fail")
+            }
+        }
+    }
 }
